@@ -38,17 +38,65 @@ const HomePageContainer: FC<HomePageContainerProps> = memo((props) => {
         style={{
           paddingTop: isMobile ? 50 : 0,
           transition: 'background: 5s',
-          background: `linear-gradient(180deg, ${color} 2%, rgb(18, 18, 18) 18%)`,
+          background:" #1C1C1E !important"
+
         }}
       >
         <Row gutter={user ? [16, 16] : undefined}>
-          {user ? (
-            <Col span={24}>
-              <TopTracks setColor={setColor} />
-            </Col>
-          ) : null}
+          <img src="https://s3-alpha-sig.figma.com/img/49e1/9ad8/d8fcbf0bfb2daa51bd1e8a7e893c8ff8?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aEaWDFCgDfBw8NxZYNaagSwi9PrySPVyLo0FF420LYPgGXEr69uVilDPwb7Xgy--niOhR9wBCpY3U6qo2zsJ8BpdB8a4jUJCpbQ1smfeCyGSmS8fQ56u1ZJ~mfwoZxkqYP5X5KOdaZKUjTs0q6W7--RY3yvTDBfcIedtewtSpQCA1uSKh~Of2cwvlm6LhYK7RtdUGStSjYmjgb8oc-bK0m2sLvrhSRemkAGuHPZCvDhK9f8xwaz3EI3dBIfULIQ56z4vsINdVS8SDL3wdM8EYmrHeuH-V7rjGa6z6K5F6GF7AIxv8v32NfrhvEVjivZs1knCgQ7NgKhIT0Qowp~FeA"
+            style={{
+              width: "100%",
+              height: "302.05px",
+              borderRadius: "10px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              margin: "20px auto",
+              display: "block",
+              background:" #1C1C1E !important"
 
-          {user ? (
+            }}
+          />
+          <div style={{
+            display: "flex", width: "100%", height: "200px"
+          }}>
+            <img
+              src="/images/banner/1731418510778_org.jpg"
+              alt="Banner"
+              style={{
+                width: '25%', height: 'auto',
+                border: '15px solid black',
+                borderRadius: '24px'
+              }}
+            />
+            <img
+              src="/images/banner/1731593959331_org.jpg"
+              alt="Banner"
+              style={{
+                width: '25%', height: 'auto',
+                border: '15px solid black',
+                borderRadius: '24px'
+              }}
+            />
+            <img
+              src="/images/banner/1731675560589_org.jpg"
+              alt="Banner"
+              style={{
+                width: '25%', height: 'auto',
+                border: '15px solid black',
+                borderRadius: '24px'
+              }}
+            />
+            <img
+              src="/images/banner/1731675908040_org.jpg"
+              alt="Banner"
+              style={{
+                width: '25%', height: 'auto',
+                border: '15px solid black',
+                borderRadius: '24px'
+              }}
+            />
+          </div>
+
+          {/* {user ? (
             <Col span={24}>
               <MadeForYou />
             </Col>
@@ -68,19 +116,19 @@ const HomePageContainer: FC<HomePageContainerProps> = memo((props) => {
 
           <Col span={24}>
             <FeaturePlaylists />
-          </Col>
+          </Col> */}
 
-          {user ? (
+          {/* {user ? (
             <Col span={24}>
               <YourPlaylists />
             </Col>
-          ) : null}
+          ) : null} */}
 
           <Col span={24}>
             <NewReleases />
           </Col>
 
-          {!user || section === 'MUSIC' ? (
+          {/* {!user || section === 'MUSIC' ? (
             <Col span={24}>
               <Rankings />
             </Col>
@@ -96,7 +144,7 @@ const HomePageContainer: FC<HomePageContainerProps> = memo((props) => {
             <Col span={24}>
               <FavouriteArtists />
             </Col>
-          ) : null}
+          ) : null} */}
         </Row>
       </div>
     </div>

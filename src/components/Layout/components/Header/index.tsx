@@ -57,25 +57,26 @@ export const PageHeader: FC<PageHeaderProps> = ({
   }, [sectionContainer, libraryCollapsed, rightLayoutOpen]);
 
   return (
-    <div
-      style={{
-        overflow: 'auto',
-        position: 'relative',
-        background: `linear-gradient(180deg, transparent 0px, ${color} 80%), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=")`,
-      }}
-    >
-      <div
-        className={`nav-header ${activeHeader ? 'active' : ''}`}
-        style={{
-          width: headerWidth,
-          opacity: !headerWidth ? 0 : 1,
-          backgroundColor: !activeHeader ? 'transparent' : tinycolor(color).darken(2).toRgbString(),
-        }}
-      >
-        <div className='nav-header-content' style={{ minHeight: 36 }}>
-          <div>{!hiddenContent || activeHeader ? children : null}</div>
-        </div>
-      </div>
-    </div>
+    // <div
+    //   style={{
+    //     overflow: 'auto',
+    //     position: 'relative',
+    //     background: `linear-gradient(180deg, transparent 0px, ${color} 80%), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=")`,
+    //   }}
+    // >
+    //   <div
+    //     className={`nav-header ${activeHeader ? 'active' : ''}`}
+    //     style={{
+    //       width: headerWidth,
+    //       opacity: !headerWidth ? 0 : 1,
+    //       backgroundColor: !activeHeader ? 'transparent' : tinycolor(color).darken(2).toRgbString(),
+    //     }}
+    //   >
+    //     <div className='nav-header-content' style={{ minHeight: 36 }}>
+    //       <div>{!hiddenContent || activeHeader ? children : null}</div>
+    //     </div>
+    //   </div>
+    // </div>
+    <div></div>
   );
 };

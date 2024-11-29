@@ -50,7 +50,10 @@ export const PlayCircle: FC<PlayCircleProps> = ({ size = 20, big, isCurrent, con
       <span>
         {!isPlaying ? (
           <svg
-            style={{ height: size }}
+          
+            style={{ height: size,
+              color:"01F7F7"
+             }}
             data-encore-id='icon'
             role='img'
             aria-hidden='true'

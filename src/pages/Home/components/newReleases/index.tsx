@@ -15,7 +15,7 @@ export const NewReleases: FC<NewReleasesProps> = () => {
 
   return (
     <div className='home'>
-      <GridItemList title={`${t('New releases')}`} items={newReleases} />
+      <GridItemList title={ `${t('Nhạc Hot Thịnh Hành')}`} items={newReleases} />
     </div>
   );
 };

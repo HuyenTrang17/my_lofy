@@ -67,10 +67,10 @@ const Card = ({
           <PlayCircle image={image} isCurrent={isCurrent} context={context} />
         </div>
       </div>
-      <div className='playlist-card-info'>
+      {/* <div className='playlist-card-info'>
         <h3 className='text-md font-semibold text-white'>{title}</h3>
         <p>{description}</p>
-      </div>
+      </div> */}
     </div>
   );
 };
