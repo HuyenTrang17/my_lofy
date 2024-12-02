@@ -15,6 +15,8 @@ import useIsMobile from '../../../../../utils/isMobile';
 import { getLibraryCollapsed, uiActions } from '../../../../../store/slices/ui';
 import { LanguageButton } from '../Language';
 import { LibraryLoginInfo } from './loginInfo';
+import styles from "../../../../../styles/Sidebar.module.css"; // Import CSS module
+
 
 const COLLAPSED_STYLE = {
   overflowY: 'scroll',
@@ -35,31 +37,41 @@ const YourLibrary = () => {
   }, [user, collapsed, activeOnOtherDevice]);
 
   return (
-    <div className={`Navigation-section library ${!collapsed ? 'open' : ''}`}>
-      <LibraryTitle />
-
-      {!collapsed && user ? <LibraryFilters /> : null}
-
-      <div className='library-list-container'>
-        <Col style={collapsed ? {} : COLLAPSED_STYLE}>
-          <div
-            className='library-list'
-            style={{
-              overflowY: 'scroll',
-              overflowX: 'hidden',
-              height: `calc(100vh - ${heightValue}px`,
-            }}
-          >
-            {!user ? <AnonymousContent /> : <LoggedContent />}
-          </div>
-
-          {!user ? (
-            <div style={{ marginLeft: 10 }}>
-              <LanguageButton />
-            </div>
-          ) : null}
-        </Col>
-      </div>
+    <div className={styles.sidebar}>
+<img src="/icons/signin_menu.png" alt="" />      <ul className={styles.menu}>
+        <li className={styles.menuItem}>
+        <img src="/icons/icon.png" alt="Thư viện" style={{
+          padding:"10px"
+        }} />
+          Thư viện
+        </li>
+        <li className={`${styles.menuItem} ${styles.active}`}>
+        <img src="/icons/icon1.png" alt="Thư viện" style={{
+          padding:"10px"
+        }} />           Khám phá
+        </li>
+        <li className={styles.menuItem}>
+<img src="/icons/icon2.png" alt="Thư viện" style={{
+          padding:"10px"
+        }} />           #MylofyChart
+        </li>
+        <li className={styles.divider}></li>
+        <li className={styles.menuItem}>
+        <img src="/icons/icon3.png" alt="Thư viện" style={{
+          padding:"10px"
+        }} />          BXH mới
+        </li>
+        <li className={styles.menuItem}>
+        <img src="/icons/icon4.png" alt="Thư viện" style={{
+          padding:"10px"
+        }} />          Chủ đề & Thể loại
+        </li>
+        <li className={styles.menuItem}>
+        <img src="/icons/icon5.png" alt="Thư viện" style={{
+          padding:"10px"
+        }} />           Top 100
+        </li>
+      </ul>
     </div>
   );
 };

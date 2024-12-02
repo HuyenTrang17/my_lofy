@@ -90,13 +90,10 @@ export const AppLayout: FC<{ children: ReactElement }> = memo((props) => {
                 id='left'
                 order={1}
                 className='mobile-hidden'
-                minSize={isTablet ? 10 : libraryCollapsed ? 7 : 22}
-                maxSize={isTablet ? 10 : libraryCollapsed ? 8 : 28}
-                defaultSize={isTablet ? 10 : libraryCollapsed ? 7 : 22}
                 style={{
-                  borderRadius: 5,
-                  minWidth: libraryCollapsed ? 85 : 280,
-                  maxWidth: libraryCollapsed ? 85 : undefined,
+                  borderRadius: 16,
+                  minWidth: 296,
+                  height:880,
                 }}
               >
                 <Library />
