@@ -82,6 +82,8 @@ export const AppLayout: FC<{ children: ReactElement }> = memo((props) => {
           <Col
             span={24}
             style={{
+              background:" #1C1C1E ",
+
               maxHeight: activeOnOtherDevice ? `calc(100vh - 185px)` : undefined,
             }}
           >
@@ -93,7 +95,7 @@ export const AppLayout: FC<{ children: ReactElement }> = memo((props) => {
                 style={{
                   borderRadius: 16,
                   minWidth: 296,
-                  height:880,
+                  height:970,
                 }}
               >
                 <Library />

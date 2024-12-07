@@ -25,6 +25,7 @@ import WebPlayback, { WebPlaybackProps } from './utils/spotify/webPlayback';
 import SearchContainer from './pages/Search/Container';
 import { playerService } from './services/player';
 import { Spinner } from './components/spinner/spinner';
+import { Library1 } from './components/Layout/components/library1';
 
 const Home = lazy(() => import('./pages/Home'));
 const Page404 = lazy(() => import('./pages/404'));
@@ -120,6 +121,7 @@ const RoutesComponent = memo(() => {
           path: '/playlist/:playlistId',
           element: <PlaylistView container={container} />,
         },
+        { path: '/library1', element: <Library1 />},
         { path: '/album/:albumId', element: <AlbumView container={container} /> },
         {
           path: '/artist/:artistId/discography',

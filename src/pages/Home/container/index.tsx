@@ -42,10 +42,9 @@ const HomePageContainer: FC<HomePageContainerProps> = memo((props) => {
         style={{
           paddingTop: isMobile ? 50 : 0,
           transition: "background: 5s",
-          background: " #1C1C1E !important",
         }}
       >
-        <Row gutter={user ? [16, 16] : undefined}>
+        <Row>
           <img
             src="https://s3-alpha-sig.figma.com/img/49e1/9ad8/d8fcbf0bfb2daa51bd1e8a7e893c8ff8?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aEaWDFCgDfBw8NxZYNaagSwi9PrySPVyLo0FF420LYPgGXEr69uVilDPwb7Xgy--niOhR9wBCpY3U6qo2zsJ8BpdB8a4jUJCpbQ1smfeCyGSmS8fQ56u1ZJ~mfwoZxkqYP5X5KOdaZKUjTs0q6W7--RY3yvTDBfcIedtewtSpQCA1uSKh~Of2cwvlm6LhYK7RtdUGStSjYmjgb8oc-bK0m2sLvrhSRemkAGuHPZCvDhK9f8xwaz3EI3dBIfULIQ56z4vsINdVS8SDL3wdM8EYmrHeuH-V7rjGa6z6K5F6GF7AIxv8v32NfrhvEVjivZs1knCgQ7NgKhIT0Qowp~FeA"
             style={{
@@ -55,13 +54,15 @@ const HomePageContainer: FC<HomePageContainerProps> = memo((props) => {
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
               margin: "20px auto",
               display: "block",
+              background:" #1C1C1E !important"
+
             }}
           />
           <div
             style={{
               display: "flex",
               width: "100%",
-              height: "200px",
+              height: "100%",
             }}
           >
             <img
@@ -108,19 +109,73 @@ const HomePageContainer: FC<HomePageContainerProps> = memo((props) => {
           <Col span={24}>
             <NewReleases />
           </Col>
-          <Col style={
-            {
-              color:"white",
-              fontSize:"40px"
-            }
 
-          }>
-          
-          Nghe gần đây
-          </Col>
-         
+          <img
+            src="/images/ngheganday.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
 
-          
+          <img
+            src="/images/danhriengchoban.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+
+          <img
+            src="/images/moiphathanh.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+          <img
+            src="/images/BXHnhacmoi.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+          <img
+            src="/images/Mylofychart.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+          <img
+            src="/images/top100.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+          <img
+            src="/images/albumhot.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+          <img
+            src="/images/Footer.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
           {/* {user ? (
             <Col span={24}>
               <MadeForYou />
