@@ -54,7 +54,7 @@ const HomePageContainer: FC<HomePageContainerProps> = memo((props) => {
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
               margin: "20px auto",
               display: "block",
-              background:" #1C1C1E !important"
+              background: " #1C1C1E !important"
 
             }}
           />
@@ -109,15 +109,9 @@ const HomePageContainer: FC<HomePageContainerProps> = memo((props) => {
           <Col span={24}>
             <NewReleases />
           </Col>
-
-          <img
-            src="/images/ngheganday.png"
-            alt=""
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          />
+          <Col span={24}>
+              <YourPlaylists />
+            </Col>
 
           <img
             src="/images/danhriengchoban.png"

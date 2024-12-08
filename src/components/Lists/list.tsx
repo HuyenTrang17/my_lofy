@@ -1,6 +1,6 @@
 import { Flex } from 'antd';
 import { Link } from 'react-router-dom';
-import { AlbumCard, ArtistCard, PlaylistCard, TrackCard } from './GridCards';
+import { AlbumCard, ArtistCard, PlaylistCard, PlaylistCardV2, TrackCard } from './GridCards';
 
 // Utils
 import { useTranslation } from 'react-i18next';
@@ -132,4 +132,109 @@ export function GridItemList(props: {
       </div>
     </div>
   );
+}
+
+export function GridItemListV2(props: {
+  title?: string;
+  items: Item[];
+  moreUrl?: string;
+  extra?: ReactNode;
+  chips?: ReactNode;
+  subtitle?: string;
+  multipleRows?: boolean;
+  onItemClick?: (item: Item) => void;
+  onItemDelete?: (item: Item) => void;
+  getDescription?: (item: Item) => string;
+}) {
+  const [t] = useTranslation(['artist']);
+  const user = useAppSelector((state) => !!state.auth.user);
+  const { onItemDelete, onItemClick, getDescription } = props;
+  const { items, chips, title, moreUrl, extra, subtitle } = props;
+  return (
+    <div className={`${!user ? 'guest' : ''}`}>
+      <Flex justify='space-between' align='center'>
+        <div>
+          {title ? (
+            moreUrl ? (
+              <Link to={moreUrl} style={{ textDecoration: 'none' }}>
+                <h1 className='playlist-header'>{title}</h1>
+              </Link>
+            ) : (
+              <h1 className='playlist-header'>{title}</h1>
+            )
+          ) : null}
+
+          {subtitle ? <h2 className='playlist-subheader'>{subtitle}</h2> : null}
+        </div>
+
+        {extra ? (
+          extra
+        ) : moreUrl ? (
+          <Link to={moreUrl}>
+            <button className='showMore'>
+              <span>{t('Show more')}</span>
+            </button>
+          </Link>
+        ) : null}
+      </Flex>
+
+      {chips}
+      <div
+        className={`playlist-grid`}
+        style={
+          props.multipleRows
+            ? {
+                gridTemplateRows: 'unset',
+              }
+            : undefined
+        }
+      >
+        {items.map((item) => {
+          return (
+            <div key={item.uri} style={{ position: 'relative' }}>
+              <div>
+              {onItemDelete ? <DeleteButton onClick={() => onItemDelete(item)} /> : null}
+              <GridItemComponentV2
+                item={item}
+                getDescription={getDescription}
+                onClick={onItemClick ? () => onItemClick(item) : undefined}
+              />
+              <p style={{
+                color:"white",padding:"16px",
+                fontFamily: "Montserrat, sans-serif", fontSize:"18px"
+              }}>
+              Nhạc Trẻ Ballad của Trung Quân Idol!
+              </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+export function GridItemComponentV2(props: {
+  item: Item;
+  onClick?: () => void;
+  getDescription?: (item: Item) => string;
+}) {
+  const { item, getDescription, onClick } = props;
+
+  if (item.type === 'track') {
+    return <TrackCard item={item} onClick={onClick} />;
+  }
+
+  if (item.type === 'album') {
+    return <AlbumCard item={item} onClick={onClick} getDescription={getDescription} />;
+  }
+
+  if (item.type === 'playlist') {
+    return <PlaylistCardV2 item={item} onClick={onClick} getDescription={getDescription} />;
+  }
+
+  if (item.type === 'artist') {
+    return <ArtistCard item={item} onClick={onClick} getDescription={getDescription} />;
+  }
+
+  return null;
 }

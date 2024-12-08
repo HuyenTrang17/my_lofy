@@ -37,9 +37,34 @@ const YourLibrary = () => {
   }, [user, collapsed, activeOnOtherDevice]);
 
   return (
-    <div className={styles.sidebar}>
+    <div className={styles.sidebar} style={{ borderRadius: "16px", background: "linear-gradient(1deg, rgba(114, 118, 139, .16), #333333)", border: "0.5px solid rgb(255 255 255 / 45%)" }}>
       <img src="/icons/signin_menu.png" alt="" />{" "}
       <ul className={styles.menu}>
+        <Link to="/">
+          {" "}
+          <li className={`${styles.menuItem} ${styles.active}`}>
+            <img
+              src="/icons/icon1.png"
+              alt="khampha"
+              style={{
+                padding: "10px",
+              }}
+            />{" "}
+            Khám phá
+          </li>
+        </Link>
+        <Link to="/MylofyChart">
+        <li className={styles.menuItem}>
+          <img
+            src="/icons/icon2.png"
+            alt="Thư viện"
+            style={{
+              padding: "10px",
+            }}
+          />{" "}
+          #MylofyChart
+        </li>
+        </Link>
         <Link to="/library1">
           {" "}
           <li className={styles.menuItem}>
@@ -53,30 +78,14 @@ const YourLibrary = () => {
             Thư viện
           </li>
         </Link>
-        <Link to="/">
-          {" "}
-        <li className={`${styles.menuItem} ${styles.active}`}>
-          <img
-            src="/icons/icon1.png"
-            alt="khampha"
-            style={{
-              padding: "10px",
-            }}
-          />{" "}
-          Khám phá
-        </li>
-        </Link>
-        <li className={styles.menuItem}>
-          <img
-            src="/icons/icon2.png"
-            alt="Thư viện"
-            style={{
-              padding: "10px",
-            }}
-          />{" "}
-          #MylofyChart
-        </li>
-        <li className={styles.divider}></li>
+
+        <img
+          src="/images/linear.png"
+          alt="Thư viện"
+          style={{
+            width: "96%"
+          }}
+        />
         <li className={styles.menuItem}>
           <img
             src="/icons/icon3.png"
@@ -128,9 +137,8 @@ const LoggedContent = memo(() => {
       {!collapsed ? <SearchArea /> : null}
 
       <div
-        className={`${collapsed ? "collapsed" : ""} ${
-          !collapsed && view === "GRID" ? "grid-view" : ""
-        }`}
+        className={`${collapsed ? "collapsed" : ""} ${!collapsed && view === "GRID" ? "grid-view" : ""
+          }`}
       >
         {items.map((item) => {
           if (collapsed) return <ListItemComponent key={item.id} item={item} />;

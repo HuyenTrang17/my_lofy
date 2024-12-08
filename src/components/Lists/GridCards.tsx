@@ -212,3 +212,87 @@ export const TrackCard = ({
     </TrackActionsWrapper>
   );
 };
+export const PlaylistCardV2 = ({
+  item,
+  onClick,
+  getDescription,
+}: {
+  item: Playlist;
+  onClick?: () => void;
+  getDescription?: (playlist: Playlist) => string;
+}) => {
+  const navigate = useNavigate();
+  const [t] = useTranslation(['playlist']);
+
+  const title = item.name;
+  const description = getDescription
+    ? getDescription(item)
+    : item.tracks?.total + ' ' + t(item.tracks?.total === 1 ? 'song' : 'songs');
+
+  return (
+    <PlayistActionsWrapper playlist={item} trigger={['contextMenu']}>
+      <div onClick={onClick}>
+        <CardV2
+          title={title}
+          uri={item.uri}
+          description={description}
+          context={{ context_uri: item.uri }}
+          onClick={() => navigate(`/playlistV2/${item.id}`)}
+          image={item.images && item.images.length ? item.images[0].url : PLAYLIST_DEFAULT_IMAGE}
+        />
+      </div>
+    </PlayistActionsWrapper>
+  );
+};
+const CardV2 = ({
+  uri,
+  title,
+  image,
+  rounded,
+  description,
+  onClick,
+  context,
+}: {
+  uri: string;
+  image: string;
+  title: string;
+  rounded?: boolean;
+  description: string;
+  onClick: () => void;
+  context: { context_uri?: string; uris?: string[] };
+}) => {
+  const paused = useAppSelector((state) => state.spotify.state?.paused);
+  const contextUri = useAppSelector((state) => state.spotify.state?.context.uri);
+  const isCurrent = contextUri === uri;
+
+  return (
+    <div
+      onClick={onClick}
+      style={{ cursor: 'pointer' }}
+      className='playlist-card relative rounded-lg overflow-hidden  hover:bg-spotify-gray-lightest transition'
+    >
+      <div
+        style={{ position: 'relative' }}
+        className='aspect-square md:aspect-w-1 md:aspect-h-1/2 lg:aspect-w-1 lg:aspect-h-3/4 xl:aspect-w-1 xl:aspect-h-4/5 p-4'
+      >
+        <img
+          src={image}
+          alt={title}
+          className={rounded ? 'rounded' : ''}
+          style={{ borderRadius: 5, width: '100%' }}
+        />
+        <div
+          className={`circle-play-div transition translate-y-1/4 ${
+            isCurrent && !paused ? 'active' : ''
+          }`}
+        >
+          <PlayCircle image={image} isCurrent={isCurrent} context={context} />
+        </div>
+      </div>
+      {/* <div className='playlist-card-info'>
+        <h3 className='text-md font-semibold text-white'>{title}</h3>
+        <p>{description}</p>
+      </div> */}
+    </div>
+  );
+};

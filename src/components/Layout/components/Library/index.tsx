@@ -22,7 +22,7 @@ export const Library: FC<LibraryProps> = () => {
   }, [user, dispatch]);
 
   return (
-    <div style={{ height: '100%' }}>
+    <div style={{ height: '72%' ,padding :"16px" , background:" !important #1C1C1E" }}>
       <YourLibrary />
     </div>
   );

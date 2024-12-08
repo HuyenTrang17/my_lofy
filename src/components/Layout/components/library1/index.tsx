@@ -3,7 +3,7 @@ export const Library1 = () => {
     <>
       <div
         style={{
-          paddingLeft: "60px",
+          paddingLeft: "60px",    background: "#1C1C1E"
         }}
       >
         <img src="/images/thuvien.png" alt="" />

@@ -26,6 +26,8 @@ import SearchContainer from './pages/Search/Container';
 import { playerService } from './services/player';
 import { Spinner } from './components/spinner/spinner';
 import { Library1 } from './components/Layout/components/library1';
+import { MylofyChart } from './components/Layout/components/mylofychart';
+import PlaylistViewV2 from './pages/PlaylistV2';
 
 const Home = lazy(() => import('./pages/Home'));
 const Page404 = lazy(() => import('./pages/404'));
@@ -121,7 +123,13 @@ const RoutesComponent = memo(() => {
           path: '/playlist/:playlistId',
           element: <PlaylistView container={container} />,
         },
+        {
+          public: true,
+          path: '/playlistV2/:playlistId',
+          element: <PlaylistViewV2 container={container} />,
+        },
         { path: '/library1', element: <Library1 />},
+        { path: '/MylofyChart', element: <MylofyChart />},
         { path: '/album/:albumId', element: <AlbumView container={container} /> },
         {
           path: '/artist/:artistId/discography',
